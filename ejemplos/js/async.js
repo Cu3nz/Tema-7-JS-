@@ -46,7 +46,7 @@ async function promesaAsync(){
 
                 console.log(segundoParrafo);
 
-                segundoParrafo.classList.add("segundo_parrafo");
+                segundoParrafo.classList.add("segundo_parrafo"); //? Al segundo parrafo le doy estilo
 
             } else {
                 console.error("No exise el cuarto div")
