@@ -129,13 +129,65 @@ function comprarProducto( nombreProductoComprar ){
   .catch(error => {
     console.error(error.message);
   });
-
-
-
-
   //! Realizada por sergio
 
 
+
+
+
+  //todo Segundo ejercicio leer ficheros
+  function crearBotones(textoBoton, nombreOnclick, idDestinoBoton) {
+    textoBoton.forEach(textoBoton => {
+      let crearBoton = document.createElement("button"); //? Creamos el boton
+      crearBoton.style.marginLeft = "0.5%"; //? Estilo css para dejar margen entre botones
+      crearBoton.setAttribute('onclick', nombreOnclick); //? Agregamos el atributo onclick al boton con el nombre que se pasa por parametro.
+      let textoDelBoton = document.createTextNode(textoBoton); //? Definimos el texto que va a tener el boton 
+      crearBoton.appendChild(textoDelBoton); //? Añadimos el texto al boton
+      document.getElementById(idDestinoBoton).appendChild(crearBoton); //? Hora de añadir el boton al dom, para ello cogemos el id que nos ha pasado el usuario ("getElementById(idDestinoBoton)" y añadimos el boton con su nombre y atributos onclick)
+    });
+  }
+
+
+  /* crearBotones(["Leer archivo"] , "leerArchivo()" , "botonCargarFichero"); */
+
+
+document.getElementById("botonCargarFichero").addEventListener('click' , function(){ //? Añadimos un evento al boton
+
+  const inputTipoFile = document.getElementById("input"); //? Almacenamos el archivo que subimos por el input
+
+  if(inputTipoFile.files.length > 0){ //? Verificamos si el input tiene archivos cargados 
+    const primerArchivo = inputTipoFile.files[0]; //? Solo cogemos el primer archivo del array files
+
+    loadFile(primerArchivo) //? Leemos el primer archivo
+    .then(() => mostrarMensaje('Archivo cargado correctamente.'))
+    .catch(error => mostrarMensaje(`Error al cargar el archivo: ${error.message}`));
+  }
+});
+
+
+function loadFile(archivo){ //? Funcion que lee el archivo que se le pasa por parametro.
+
+  return new Promise ((resolve , reject) => {
+
+    const leer = new FileReader(); //? Creamos una nueva instancia de FileReader que se utiliza para leer el contenido de los archivos
+
+    leer.onload = () => { //? Establece una función que se ejecutará cuando FileReader haya terminado de leer el archivo.
+      try {
+        const contenidoArchivo = leer.result; //? Leemos el contenido y lo almacenamos en la variable contenidoArchivo
+
+        appendContentToHead(file.type, contenidoArchivo); //*appendContentToHead(file.type, contenidoArchivo); // Llama a la función 'appendContentToHead' con dos argumentos: 'file.type', que representa el tipo MIME del archivo, y 'contenidoArchivo', que contiene los datos del archivo. Esta función se encarga de procesar o utilizar estos datos, posiblemente agregándolos al elemento <head> del documento HTML.
+
+        resolve(); //* Define que la promesa se ha realizado con exito
+      } catch (error){
+        reject(error);
+      }
+    };
+
+    reader.onerror = () => reject(new Error('Error al leer el archivo'));
+    reader.readAsText(file);
+  })
+
+}
 
     
 
