@@ -12,6 +12,11 @@
     color: rgb(78, 2, 2);
     text-decoration: underline;
 }
+.etiqueta_h2_mejor{
+    text-align: center;
+    color: rgb(255, 255, 255);
+    text-decoration: underline;
+}
 
 .segundo_parrafo{
     color: red;

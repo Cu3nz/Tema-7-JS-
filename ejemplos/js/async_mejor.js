@@ -23,7 +23,7 @@ async function promesaAsync() {
       /* console.log(etiquetaH2Divs); */
 
       for (let h2 of etiquetaH2Divs) {
-        h2.classList.add("etiqueta_h2"); //? Añadimos la siguiente clase (h2) a todas las etiquetas h2.
+        h2.classList.add("etiqueta_h2_mejor"); //? Añadimos la siguiente clase (etiqueta_h2_mejor) a todas las etiquetas h2.
       }
 
       //todo Elegir el primer cuarto div
