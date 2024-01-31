@@ -14,15 +14,15 @@ async function promesaDosTablas() {
             crearDivPost.classList.add("divs_post"); //? Añadimos la clase a los divs que contiene los pots 
 
             if (item.userId == 2) { //? Si el user id es == 2
-                if (!contenedorUserId) { //* Si aún no existe, lo creamos
+                if (!contenedorUserId) { //* Si aun no existe, lo creamos
 
                     contenedorUserId = document.createElement("div"); //? Lo creamos
 
                     contenedorUserId.classList.add("dos-columnas"); //? Añadimos la clase a los contenedores que tenga el userId == 2.
 
-                    contenedorPrincipal.appendChild(contenedorUserId); //? Añadimos al contenedor principal el contenedor especial
+                    contenedorPrincipal.appendChild(contenedorUserId); //? Añadimos al contenedor principal el contenedor especial para los divs con userId = 2
                 }
-                contenedorUserId.appendChild(crearDivPost); //? Agregamos el contenedorUserId al contenedor donde esta todos los divs, pero solamente los divs que tienen el userId == 2, los demas lo deja normal
+                contenedorUserId.appendChild(crearDivPost); //? Agregamos el contenedorUserId al contenedor donde esta todos los divsPost , pero solamente los divsPost que tienen el userId == 2, los demas lo deja normal
 
             } else { // Si no tiene userId == 2, añadimos al contenedor principal los divs con los pots 
 
