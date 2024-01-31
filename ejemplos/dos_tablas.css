@@ -1,0 +1,21 @@
+.divs_post{
+    background-color: grey;
+    font-size: 1vw;
+    border: 2px solid #000;
+    margin: 1vh;
+    padding: 2vh;
+}
+
+
+
+.dos-columnas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.dos-columnas .divs_post {
+   flex-basis: 45%;
+    min-width: 300px;
+}
