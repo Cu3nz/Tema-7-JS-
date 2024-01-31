@@ -1,0 +1,27 @@
+#contendor_principal {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+}
+
+.usuario {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.par {
+    background-color: #f0f0f0;
+}
+
+#search-container {
+    margin: 20px;
+    text-align: center;
+}
+
+input, button {
+    padding: 10px;
+    margin: 5px;
+    font-size: 16px;
+}

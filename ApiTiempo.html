@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenWeatherMap Example</title>
+</head>
+<body>
+  <h1>El tiempo</h1>
+  <div id="weather-info"></div>
+
+  <script>
+    // Reemplaza 'TU_CLAVE_DE_API' con tu clave de API de OpenWeatherMap
+    const apiKey = 'df4fe49b3d432afbdf255bfa021c03c0';
+    const city = 'Madridfxf'; // Cambia 'London' por la ciudad que desees
+
+    // Construye la URL de la solicitud
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+    // Realiza la solicitud HTTP
+    fetch(apiUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Red no funciona');
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Procesa los datos de la respuesta
+        const weatherInfo = `
+          <p>Temperatura: ${data.main.temp}°C</p>
+          <p>Tiempo: ${data.weather[0].main}</p>
+          <p>Descripción: ${data.weather[0].description}</p>
+        `;
+        document.getElementById('weather-info').innerHTML = weatherInfo;
+      })
+      .catch(error => {
+        console.error('Error de fetch:', error);
+        document.getElementById('weather-info').innerHTML = '<p>Error de fetch</p>';
+      });
+  </script>
+</body>
+</html>
